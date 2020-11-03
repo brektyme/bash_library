@@ -3,9 +3,9 @@ set -euo pipefail
 IFS=$'\t\n'
 
 
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
+RED=$'\e[0;31m'
+NC=$'\e[0m'
+GREEN=$'\e[0;32m'
 
 export RED
 export NC

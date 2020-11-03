@@ -7,7 +7,7 @@ source <(curl -s https://raw.githubusercontent.com/brektyme/bash_library/main/va
 
 
 function warn() {
-    printf "%s: %s%s%s\n" "$0:" "$RED" "$@" "$NC">&2
+    echo "$0: ${RED}$*${NC}">&2
 }
 
 function die() {
