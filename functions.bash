@@ -2,10 +2,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# shellcheck disable=1090
+source <(curl -s https://raw.githubusercontent.com/brektyme/bash_library/main/variables.bash)
 
 
 function warn() {
-    printf "%s: %s\n" "$0:" "$@" >&2
+    printf "%s: %s%s%s\n" "$0:" "$RED" "$@" "$NC">&2
 }
 
 function die() {
