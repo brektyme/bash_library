@@ -49,3 +49,7 @@ function abs_path() {
     fi
 }
 
+
+function is_file() {
+    test -f "$1"; return $?
+}
