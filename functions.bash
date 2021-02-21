@@ -53,3 +53,12 @@ function abs_path() {
 function is_file() {
     test -f "$1"; return $?
 }
+
+# From https://stackoverflow.com/questions/8063228/check-if-a-variable-exists-in-a-list-in-bash
+contains() {
+    if [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
