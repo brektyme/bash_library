@@ -55,12 +55,20 @@ function is_file() {
 }
 
 # From https://stackoverflow.com/questions/8063228/check-if-a-variable-exists-in-a-list-in-bash
-contains() {
-    local name=$1[@]
-    local arr=("${!name}")
+function contains() {
+    local -n arr=$1
+    set +u
+    [ "${#arr[*]}" -eq 0 ] && set -u && return 1
     if [[ ${arr[*]} =~ (^|[[:space:]])"$2"($|[[:space:]]) ]]; then
         return 0
     else
         return 1
     fi
 }
+
+function delete() {
+    local -n arr=$1
+    arr=("${arr[@]/$2}")
+    return 0
+}
+
