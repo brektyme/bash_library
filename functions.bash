@@ -72,3 +72,10 @@ function delete() {
     return 0
 }
 
+function join() {
+    # join deliminator array
+    local d=${1-} f=${2-}
+    if shift 2; then
+        printf %s "$f" "${@/#/$d}"
+    fi
+}
